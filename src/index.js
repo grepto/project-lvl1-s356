@@ -1,23 +1,19 @@
 import readlineSync from 'readline-sync';
 
-export const getUserName = () => {
-  const userName = readlineSync.question('May I have your name? ');
-  // console.log(`Hello ${userName}!`);
-  return userName;
+export const askUser = question => readlineSync.question(`${question} `);
+
+export const randomInteger = (min, max) => {
+  let rand = min - 0.5 + Math.random() * (max - min + 1);
+  rand = Math.round(rand);
+  return rand;
 };
 
-export const checkParity = number => number % 2 === 0;
-
-export const brainEvenStep = (questionNumber) => {
-  const rightAnswer = checkParity(questionNumber) ? 'yes' : 'no';
-  console.log(`Question: ${questionNumber}`);
-  const userAnswer = readlineSync.question('Your answer: ');
-
-  if (rightAnswer === userAnswer) {
-    console.log('Correct!');
-    return true;
+export const randomString = (sequence, length) => {
+  let text = '';
+  let index;
+  for (let i = 0; i < length; i += 1) {
+    index = randomInteger(0, sequence.length - 1);
+    text += sequence[index];
   }
-
-  console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`);
-  return false;
+  return text;
 };
