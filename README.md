@@ -6,4 +6,8 @@
 
 [![Build Status](https://travis-ci.org/grepto/project-lvl1-s356.svg?branch=master)](https://travis-ci.org/grepto/project-lvl1-s356)
 
+## brain-even
 [![asciicast](https://asciinema.org/a/iZriNVdBp6zEtAjwjmZe3OE0f.png)](https://asciinema.org/a/iZriNVdBp6zEtAjwjmZe3OE0f)
+
+## brain-calc
+[![asciicast](https://asciinema.org/a/uyvOM38aZhqLN3SH8ZJUMqYct.png)](https://asciinema.org/a/uyvOM38aZhqLN3SH8ZJUMqYct)
