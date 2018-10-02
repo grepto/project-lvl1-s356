@@ -1,10 +1,13 @@
 import { cons } from 'hexlet-pairs';
-import { randomInteger, randomString } from '../index';
+import randomInteger from '../utils';
+import startGame from '../gameEngine';
 
-const gameCalculation = () => {
+const gameDescription = 'What is the result of the expression?\n';
+
+const pairCalculation = () => {
   const a = randomInteger(1, 100);
   const b = randomInteger(1, 100);
-  const operation = randomString('+-*', 1);
+  const operation = '+-*'[randomInteger(0, 2)];
   let answer;
   switch (operation) {
     case '+':
@@ -16,8 +19,9 @@ const gameCalculation = () => {
     default:
       answer = a * b;
   }
-  // console.log(toString(cons(`${a} ${operation} ${b}`, answer)));
   return cons(`${a} ${operation} ${b}`, answer);
 };
+
+const gameCalculation = () => startGame(pairCalculation, gameDescription);
 
 export default gameCalculation;

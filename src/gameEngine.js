@@ -1,44 +1,23 @@
 import { car, cdr } from 'hexlet-pairs';
-import { askUser } from '.';
-import gameCalculation from './games/calculation';
-import gameEven from './games/even';
-import gameGcd from './games/gcd';
+import readlineSync from 'readline-sync';
+
+const welcomeMessage = '\nWelcome to the Brain Games!';
+
+const askUser = question => readlineSync.question(`${question} `);
 
 
-const startGame = (gameName) => {
-  const welcomeMessage = '\nWelcome to the Brain Games!';
-  let gameFunction;
-  let gameDescription;
-
-  if (gameName === 'calculation') {
-    gameFunction = gameCalculation;
-    gameDescription = 'What is the result of the expression?\n';
-  }
-  if (gameName === 'even') {
-    gameFunction = gameEven;
-    gameDescription = 'nswer "yes" if number even otherwise answer "no".\n';
-  }
-  if (gameName === 'gcd') {
-    gameFunction = gameGcd;
-    gameDescription = 'Find the greatest common divisor of given numbers.\n';
-  }
-
+const startGame = (gameFunction, gameDescription) => {
   console.log(welcomeMessage);
   console.log(gameDescription);
 
   const userName = askUser('May I have your name user?');
   console.log(`Hello, ${userName}\n`);
 
-  let gamePair;
-  let question;
-  let rightAnswer;
-  let userAnswer;
-
   for (let i = 0; i < 3; i += 1) {
-    gamePair = gameFunction();
-    question = car(gamePair);
-    rightAnswer = cdr(gamePair);
-    userAnswer = askUser(`Question: ${question}\nYour answer:`);
+    const gamePair = gameFunction();
+    const question = car(gamePair);
+    const rightAnswer = cdr(gamePair);
+    const userAnswer = askUser(`Question: ${question}\nYour answer:`);
 
     if (userAnswer === String(rightAnswer)) {
       console.log('Correct!');
@@ -48,7 +27,6 @@ const startGame = (gameName) => {
       return;
     }
   }
-
   console.log(`Congratulations, ${userName}!`);
 };
 
