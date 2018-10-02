@@ -2,6 +2,7 @@ import { car, cdr } from 'hexlet-pairs';
 import { askUser } from '.';
 import gameCalculation from './games/calculation';
 import gameEven from './games/even';
+import gameGcd from './games/gcd';
 
 
 const startGame = (gameName) => {
@@ -16,6 +17,10 @@ const startGame = (gameName) => {
   if (gameName === 'even') {
     gameFunction = gameEven;
     gameDescription = 'nswer "yes" if number even otherwise answer "no".\n';
+  }
+  if (gameName === 'gcd') {
+    gameFunction = gameGcd;
+    gameDescription = 'Find the greatest common divisor of given numbers.\n';
   }
 
   console.log(welcomeMessage);
