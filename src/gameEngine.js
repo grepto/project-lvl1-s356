@@ -1,10 +1,7 @@
 import { car, cdr } from 'hexlet-pairs';
-import readlineSync from 'readline-sync';
+import { askUser } from './utils';
 
 const welcomeMessage = '\nWelcome to the Brain Games!';
-
-const askUser = question => readlineSync.question(`${question} `);
-
 
 const startGame = (gameFunction, gameDescription) => {
   console.log(welcomeMessage);

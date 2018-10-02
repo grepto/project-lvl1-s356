@@ -1,6 +1,7 @@
 #!/usr/bin/env node
-import getUserName from '..';
+import { askUser } from '../utils';
 
 console.log('Welcome to the Brain Games!');
 
-console.log(`Hello ${getUserName()}!`);
+const userName = askUser('May I have your name user?');
+console.log(`Hello, ${userName}\n`);
