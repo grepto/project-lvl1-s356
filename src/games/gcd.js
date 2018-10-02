@@ -1,4 +1,4 @@
-import { cons, toString } from 'hexlet-pairs';
+import { cons } from 'hexlet-pairs';
 import { randomInteger } from '../index';
 
 const getGcd = (a, b) => {
@@ -13,7 +13,7 @@ const gameGcd = () => {
   const a = randomInteger(1, 100);
   const b = randomInteger(1, 100);
   const answer = getGcd(a, b);
-  console.log(toString(cons(`${a} ${b}`, answer)));
+  //  console.log(toString(cons(`${a} ${b}`, answer)));
   return cons(`${a} ${b}`, answer);
 };
 

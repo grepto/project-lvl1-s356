@@ -1,6 +1,6 @@
 {
   "name": "hexlet_braingames_by_grepto",
-  "version": "1.4.1",
+  "version": "1.4.3",
   "description": "Учебный проект Brain Games",
   "main": "",
   "keywords": [
@@ -23,6 +23,10 @@
     "url": "https://github.com/grepto/project-lvl1-s356/issues"
   },
   "homepage": "https://github.com/grepto/project-lvl1-s356#readme",
+  "dependencies": {
+    "hexlet-pairs": "^1.0.8",
+    "readline-sync": "^1.4.9"
+  },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.2",
@@ -41,9 +45,5 @@
   },
   "files": [
     "dist"
-  ],
-  "dependencies": {
-    "hexlet-pairs": "^1.0.8",
-    "readline-sync": "^1.4.9"
-  }
+  ]
 }
