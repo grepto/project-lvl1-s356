@@ -15,4 +15,4 @@
 [![asciicast](https://asciinema.org/a/7TglRi2WMluurTsoGxwOueKCM.png)](https://asciinema.org/a/7TglRi2WMluurTsoGxwOueKCM)
 
 ## brain-prime
-[![asciicast](https://asciinema.org/a/RI1s7bZJnexjGwaL51AQLBu3Q.png)](https://asciinema.org/a/RI1s7bZJnexjGwaL51AQLBu3Q)
+[![asciicast](https://asciinema.org/a/204270.png)](https://asciinema.org/a/204270)
