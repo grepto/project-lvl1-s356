@@ -2,7 +2,7 @@ import { cons } from 'hexlet-pairs';
 import randomInteger from '../utils';
 import startGame from '../gameEngine';
 
-const gameDescription = 'What is the result of the expression?\n';
+const gameDescription = 'What is the result of the expression?';
 
 const pairCalculation = () => {
   const a = randomInteger(1, 100);
@@ -22,6 +22,4 @@ const pairCalculation = () => {
   return cons(`${a} ${operation} ${b}`, answer);
 };
 
-const gameCalculation = () => startGame(pairCalculation, gameDescription);
-
-export default gameCalculation;
+export default () => startGame(pairCalculation, gameDescription);

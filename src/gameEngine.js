@@ -5,7 +5,7 @@ const welcomeMessage = '\nWelcome to the Brain Games!';
 
 const startGame = (gameFunction, gameDescription) => {
   console.log(welcomeMessage);
-  console.log(gameDescription);
+  console.log(`${gameDescription}\n`);
 
   const userName = askUser('May I have your name user?');
   console.log(`Hello, ${userName}\n`);

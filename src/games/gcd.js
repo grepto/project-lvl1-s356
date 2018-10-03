@@ -2,15 +2,10 @@ import { cons } from 'hexlet-pairs';
 import randomInteger from '../utils';
 import startGame from '../gameEngine';
 
-const gameDescription = 'Find the greatest common divisor of given numbers.\n';
-
-const getAbsMin = (a, b) => {
-  if (Math.abs(a) <= Math.abs(b)) { return Math.abs(a); }
-  return Math.abs(b);
-};
+const gameDescription = 'Find the greatest common divisor of given numbers.';
 
 const getGcd = (a, b) => {
-  const minValue = getAbsMin(a, b);
+  const minValue = Math.min(a, b);
   for (let i = minValue; i > 0; i -= 1) {
     if (a % i === 0 && b % i === 0) return i;
   }
@@ -24,6 +19,4 @@ const pairGcd = () => {
   return cons(`${a} ${b}`, answer);
 };
 
-const gameGcd = () => startGame(pairGcd, gameDescription);
-
-export default gameGcd;
+export default () => startGame(pairGcd, gameDescription);
