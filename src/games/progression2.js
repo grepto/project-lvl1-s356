@@ -5,38 +5,25 @@ import startGame from '../gameEngine';
 const gameDescription = 'What is the result of the expression?';
 const progressionLength = 10;
 
-const getProgression = (start, step, question) => {
-  const addProgression = (counter, progression, element) => {
-    if (counter === progressionLength) {
-      return progression;
-    }
-
-    const nextElement = element + step;
-    const nextElementText = counter + 1 === question ? '..' : nextElement;
-    return addProgression(counter + 1, `${progression} ${nextElementText}`, nextElement);
-  };
-  const startElement = question === 1 ? '..' : start;
-  return addProgression(1, startElement, start);
-};
-
-const getAnswer = (start, step, question) => {
-  const calculation = (counter, answer) => {
-    if (counter === question) {
-      return String(answer);
-    }
-    return calculation(counter + 1, answer + step);
-  };
-  return calculation(1, start);
-};
-
 const pairProgression = () => {
-  const startProgression = randomInteger(1, 10);
-  const stepProgression = randomInteger(2, 5);
-  const answerPosition = randomInteger(1, 10);
+  const start = randomInteger(1, 10);
+  const step = randomInteger(2, 5);
+  const answerPosition = randomInteger(0, 9);
 
-  const question = getProgression(startProgression, stepProgression, answerPosition);
-  const answer = getAnswer(startProgression, stepProgression, answerPosition);
+  const getElement = index => start + (step * index);
 
-  return cons(question, answer);
+  const question = () => {
+    const getQuestion = (counter, progression) => {
+      if (counter === progressionLength) return progression;
+      const nextElement = counter === answerPosition ? '..' : getElement(counter);
+      return getQuestion(counter + 1, `${progression} ${nextElement}`);
+    };
+    const startElement = answerPosition === 0 ? '..' : start;
+    return getQuestion(1, startElement);
+  };
+
+  const answer = getElement(answerPosition);
+
+  return cons(question(), String(answer));
 };
 export default () => startGame(pairProgression, gameDescription);

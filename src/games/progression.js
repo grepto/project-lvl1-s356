@@ -5,27 +5,22 @@ import startGame from '../gameEngine';
 const gameDescription = 'What is the result of the expression?';
 const progressionLength = 10;
 
+
 const pairProgression = () => {
-  const startProgression = randomInteger(1, 10);
-  const stepProgression = randomInteger(2, 5);
-  const answerPosition = randomInteger(1, 10);
+  const start = randomInteger(1, 10);
+  const step = randomInteger(2, 5);
+  const answerPosition = randomInteger(0, 9);
 
-  let question = '';
-  let answer = '';
-  let currentStep = startProgression;
-  let currentStepText;
+  const getElement = index => start + (step * index);
 
-  for (let i = 1; i <= progressionLength; i += 1) {
-    if (i === answerPosition) {
-      answer = currentStep;
-      currentStepText = '..';
-    } else {
-      currentStepText = currentStep;
-    }
-    question += ` ${currentStepText}`;
-    currentStep += stepProgression;
+  let question = answerPosition === 0 ? '..' : start;
+
+  for (let i = 1; i < progressionLength; i += 1) {
+    const nextElement = i === answerPosition ? '..' : getElement(i);
+    question += ` ${nextElement}`;
   }
 
+  const answer = String(getElement(answerPosition));
   return cons(question, answer);
 };
 
