@@ -13,13 +13,13 @@ const pairProgression = () => {
   const getElement = index => start + (step * index);
 
   const question = () => {
-    const getQuestion = (counter, progression) => {
+    const getProgression = (counter, progression) => {
       if (counter === progressionLength) return progression;
       const nextElement = counter === answerPosition ? '..' : getElement(counter);
-      return getQuestion(counter + 1, `${progression} ${nextElement}`);
+      return getProgression(counter + 1, `${progression} ${nextElement}`);
     };
     const startElement = answerPosition === 0 ? '..' : start;
-    return getQuestion(1, startElement);
+    return getProgression(1, startElement);
   };
 
   const answer = getElement(answerPosition);
