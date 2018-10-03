@@ -16,7 +16,7 @@ const pairGcd = () => {
   const a = randomInteger(1, 100);
   const b = randomInteger(1, 100);
   const answer = getGcd(a, b);
-  return cons(`${a} ${b}`, answer);
+  return cons(`${a} ${b}`, String(answer));
 };
 
 export default () => startGame(pairGcd, gameDescription);

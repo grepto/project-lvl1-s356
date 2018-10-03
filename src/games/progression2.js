@@ -3,10 +3,11 @@ import randomInteger from '../utils';
 import startGame from '../gameEngine';
 
 const gameDescription = 'What is the result of the expression?';
+const progressionLength = 10;
 
 const getProgression = (start, step, question) => {
   const addProgression = (counter, progression, element) => {
-    if (counter === 10) {
+    if (counter === progressionLength) {
       return progression;
     }
 
@@ -21,7 +22,7 @@ const getProgression = (start, step, question) => {
 const getAnswer = (start, step, question) => {
   const calculation = (counter, answer) => {
     if (counter === question) {
-      return answer;
+      return String(answer);
     }
     return calculation(counter + 1, answer + step);
   };
@@ -31,10 +32,10 @@ const getAnswer = (start, step, question) => {
 const pairProgression = () => {
   const startProgression = randomInteger(1, 10);
   const stepProgression = randomInteger(2, 5);
-  const questionStep = randomInteger(1, 10);
+  const answerPosition = randomInteger(1, 10);
 
-  const question = getProgression(startProgression, stepProgression, questionStep);
-  const answer = getAnswer(startProgression, stepProgression, questionStep);
+  const question = getProgression(startProgression, stepProgression, answerPosition);
+  const answer = getAnswer(startProgression, stepProgression, answerPosition);
 
   return cons(question, answer);
 };

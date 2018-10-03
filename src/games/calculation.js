@@ -19,7 +19,7 @@ const pairCalculation = () => {
     default:
       answer = a * b;
   }
-  return cons(`${a} ${operation} ${b}`, answer);
+  return cons(`${a} ${operation} ${b}`, String(answer));
 };
 
 export default () => startGame(pairCalculation, gameDescription);
