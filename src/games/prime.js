@@ -7,11 +7,11 @@ const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer
 const isPrime = (question) => {
   if (question < 2) return false;
   const iter = (counter) => {
-    if (counter === 1) { return true; }
+    if (counter === question) { return true; }
     if (question % counter === 0) { return false; }
-    return iter(counter - 1);
+    return iter(counter + 1);
   };
-  return iter(question - 1);
+  return iter(2);
 };
 
 const pairPrime = () => {
