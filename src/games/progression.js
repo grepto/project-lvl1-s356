@@ -13,8 +13,7 @@ const pairProgression = () => {
   const getElement = index => start + (step * index);
 
   let question = '';
-  for (let i = 1; i < progressionLength; i += 1) {
-    if (i === 1) { question = answerPosition === 0 ? '..' : start; }
+  for (let i = 0; i < progressionLength; i += 1) {
     const nextElement = i === answerPosition ? '..' : getElement(i);
     question += ` ${nextElement}`;
   }
