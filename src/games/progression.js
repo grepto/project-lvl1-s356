@@ -5,7 +5,6 @@ import startGame from '../gameEngine';
 const gameDescription = 'What is the result of the expression?';
 const progressionLength = 10;
 
-
 const pairProgression = () => {
   const start = randomInteger(1, 10);
   const step = randomInteger(2, 5);
@@ -13,9 +12,9 @@ const pairProgression = () => {
 
   const getElement = index => start + (step * index);
 
-  let question = answerPosition === 0 ? '..' : start;
-
+  let question = '';
   for (let i = 1; i < progressionLength; i += 1) {
+    if (i === 1) { question = answerPosition === 0 ? '..' : start; }
     const nextElement = i === answerPosition ? '..' : getElement(i);
     question += ` ${nextElement}`;
   }

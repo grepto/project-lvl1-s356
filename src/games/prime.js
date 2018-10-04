@@ -4,20 +4,20 @@ import startGame from '../gameEngine';
 
 const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const isPrime = (question) => {
-  if (question < 2) return false;
+const isPrime = (number) => {
+  if (number < 2 || number % 2 === 0) return false;
+  if (number === 2) return true;
   const iter = (counter) => {
-    if (counter === question) { return true; }
-    if (question % counter === 0) { return false; }
-    return iter(counter + 1);
+    if (counter ** 2 > number) { return true; }
+    if (number % counter === 0) { return false; }
+    return iter(counter + 2);
   };
-  return iter(2);
+  return iter(3);
 };
 
 const pairPrime = () => {
   const question = randomInteger(1, 1000);
   const answer = isPrime(question) ? 'yes' : 'no';
-
   return cons(question, answer);
 };
 

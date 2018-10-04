@@ -5,25 +5,25 @@ import startGame from '../gameEngine';
 const gameDescription = 'What is the result of the expression?';
 const progressionLength = 10;
 
+const getElement = (start, step, index) => start + (step * index);
+
+const getQuestion = (start, step, answerPosition) => {
+  const getProgression = (counter, progression) => {
+    if (counter === progressionLength) return progression;
+    const nextElement = counter === answerPosition ? '..' : getElement(start, step, counter);
+    return getProgression(counter + 1, `${progression} ${nextElement}`);
+  };
+  const startElement = answerPosition === 0 ? '..' : start;
+  return getProgression(1, startElement);
+};
+
 const pairProgression = () => {
   const start = randomInteger(1, 10);
   const step = randomInteger(2, 5);
   const answerPosition = randomInteger(0, 9);
-
-  const getElement = index => start + (step * index);
-
-  const question = () => {
-    const getProgression = (counter, progression) => {
-      if (counter === progressionLength) return progression;
-      const nextElement = counter === answerPosition ? '..' : getElement(counter);
-      return getProgression(counter + 1, `${progression} ${nextElement}`);
-    };
-    const startElement = answerPosition === 0 ? '..' : start;
-    return getProgression(1, startElement);
-  };
-
-  const answer = getElement(answerPosition);
-
-  return cons(question(), String(answer));
+  const question = getQuestion(start, step, answerPosition);
+  const answer = getElement(start, step, answerPosition);
+  return cons(question, String(answer));
 };
+
 export default () => startGame(pairProgression, gameDescription);
