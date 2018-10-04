@@ -13,14 +13,13 @@ const getQuestion = (start, step, answerPosition) => {
     const nextElement = counter === answerPosition ? '..' : getElement(start, step, counter);
     return getProgression(counter + 1, `${progression} ${nextElement}`);
   };
-  const startElement = answerPosition === 0 ? '..' : start;
-  return getProgression(1, startElement);
+  return getProgression(0, '');
 };
 
 const pairProgression = () => {
   const start = randomInteger(1, 10);
   const step = randomInteger(2, 5);
-  const answerPosition = randomInteger(0, 9);
+  const answerPosition = randomInteger(0, progressionLength - 1);
   const question = getQuestion(start, step, answerPosition);
   const answer = getElement(start, step, answerPosition);
   return cons(question, String(answer));

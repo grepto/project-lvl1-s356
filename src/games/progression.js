@@ -8,7 +8,7 @@ const progressionLength = 10;
 const pairProgression = () => {
   const start = randomInteger(1, 10);
   const step = randomInteger(2, 5);
-  const answerPosition = randomInteger(0, 9);
+  const answerPosition = randomInteger(0, progressionLength - 1);
 
   const getElement = index => start + (step * index);
 
